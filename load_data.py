@@ -32,7 +32,7 @@ merged_df = CPI.merge(zillow, on = ["Year", "Month", "Day"])
 print(merged_df)
 
 
-CPI.to_csv("clean_CPI.csv")
-zillow.to_csv("clean_zillow.csv")
+CPI.to_csv("clean_CPI.csv", index = False)
+zillow.to_csv("clean_zillow.csv", index = False)
 
 merged_df.to_csv("merged_df.csv", index = False)
