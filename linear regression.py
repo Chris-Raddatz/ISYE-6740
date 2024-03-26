@@ -18,15 +18,16 @@ y = file[states]
 xtrain, xtest, ytrain, ytest = train_test_split(x, y, test_size = 0.15, train_size = .85, random_state = 21)
 model.fit(xtrain, ytrain)
 
-# print(model.intercept_) #Have an intercept of 0
 cdf = pd.DataFrame(model.coef_, states, columns=['Coefficients'])
-print(cdf)
 
-sns.barplot(cdf.T)
+ordered_by_coef = cdf.sort_values(by = "Coefficients", ascending = False)
+print(ordered_by_coef)
+
+sns.barplot(ordered_by_coef.T)
 plt.xticks(rotation = 90)
 plt.title("State coefficients for Regressing on CPI")
 plt.xlabel("States")
 plt.ylabel("Coefficients")
 plt.savefig("Coefficient_states.png")
 plt.show()
-# print(model.score(xtest, ytest))
+print(model.score(xtest, ytest))

@@ -29,10 +29,21 @@ zillow.drop(columns = {"North Dakota", "Montana"}, inplace = True)
 zillow.dropna(inplace = True)
 
 merged_df = CPI.merge(zillow, on = ["Year", "Month", "Day"])
-print(merged_df)
 
 
 CPI.to_csv("clean_CPI.csv", index = False)
 zillow.to_csv("clean_zillow.csv", index = False)
 
 merged_df.to_csv("merged_df.csv", index = False)
+
+
+# Data Cleaning, I want to tranpose the dataset into many rows for one date of CPI, with ZHVI values and a corresponding column that identifies what state it's from. 
+dates_and_cpi = merged_df.iloc[:, :4]
+dates_cpi_california = merged_df.iloc[:, :5]
+dates_cpi_california['State'] = "California"
+dates_cpi_california.rename(columns = {"California" : "Value"}, inplace = True)
+
+concat_df = pd.concat([dates_and_cpi, dates_cpi_california], axis = 0, ignore_index = True)
+
+print(concat_df.dropna())
+print(merged_df)
