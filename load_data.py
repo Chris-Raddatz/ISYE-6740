@@ -41,9 +41,20 @@ merged_df.to_csv("merged_df.csv", index = False)
 dates_and_cpi = merged_df.iloc[:, :4]
 dates_cpi_california = merged_df.iloc[:, :5]
 dates_cpi_california['State'] = "California"
-dates_cpi_california.rename(columns = {"California" : "Value"}, inplace = True)
+dates_cpi_california.rename(columns = {"California" : "ZHVI"}, inplace = True)
 
-concat_df = pd.concat([dates_and_cpi, dates_cpi_california], axis = 0, ignore_index = True)
+concat_df = pd.concat([dates_and_cpi, dates_cpi_california], axis = 0, ignore_index = True).dropna().reset_index(drop = True)
 
-print(concat_df.dropna())
-print(merged_df)
+
+states = list(merged_df.columns)[5:] #Don't need to include california
+
+#Expect a dataframe 11123 long
+for i in states:
+    just_that_state = merged_df[['Year', 'Month', 'Day', 'CPI', i]]
+    just_that_state['State'] = i
+    just_that_state.rename(columns = {i : "ZHVI"}, inplace = True)
+    concat_df = pd.concat([concat_df, just_that_state], axis = 0, ignore_index = True).dropna().reset_index(drop = True)
+
+concat_df.sort_values(by = ["Year", "Month", "Day"], inplace = True)
+
+concat_df.to_csv("dummiable_data.csv", index = False)
