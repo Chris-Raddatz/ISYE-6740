@@ -1,7 +1,7 @@
 import pandas as pd
 
-CPI = pd.read_csv("US CPI.csv")
-zillow = pd.read_csv("ZHVI.csv")
+CPI = pd.read_csv("data/US CPI.csv")
+zillow = pd.read_csv("data/ZHVI.csv")
 
 CPI['Month'] = CPI['Yearmon'].str.extract("(\d+)-\d+-\d+").fillna("")
 CPI['Day'] = CPI['Yearmon'].str.extract("\d+-(\d+)-\d+").fillna("")
@@ -31,10 +31,10 @@ zillow.dropna(inplace = True)
 merged_df = CPI.merge(zillow, on = ["Year", "Month", "Day"])
 
 
-CPI.to_csv("clean_CPI.csv", index = False)
-zillow.to_csv("clean_zillow.csv", index = False)
+CPI.to_csv("data/clean_CPI.csv", index = False)
+zillow.to_csv("data/clean_zillow.csv", index = False)
 
-merged_df.to_csv("merged_df.csv", index = False)
+merged_df.to_csv("data/merged_df.csv", index = False)
 
 
 # Data Cleaning, I want to tranpose the dataset into many rows for one date of CPI, with ZHVI values and a corresponding column that identifies what state it's from. 
@@ -57,4 +57,4 @@ for i in states:
 
 concat_df.sort_values(by = ["Year", "Month", "Day"], inplace = True)
 
-concat_df.to_csv("dummiable_data.csv", index = False)
+concat_df.to_csv("data/dummiable_data.csv", index = False)

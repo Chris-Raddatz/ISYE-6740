@@ -7,7 +7,7 @@ import seaborn as sns
 
 np.random.seed(21)
 
-file = pd.read_csv("merged_df.csv")
+file = pd.read_csv("data/merged_df.csv")
 
 states = list(file.columns)[4:]
 
