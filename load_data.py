@@ -18,8 +18,7 @@ CPI.drop(columns = "Yearmon", inplace = True) #Drop Old column
 zillow.drop(columns = "Date", inplace = True)
 
 CPI = CPI[['Year', "Month", "Day", "CPI"]] #Reorganize columns
-zillow = zillow[['Year', "Month", "Day"] + [col for col in zillow.columns[:-3] if col != ['Year', "Month", "Day"]]] 
-#Since there are so many columns, we can index for our desired start columns and add the rest
+zillow = zillow[['Year', "Month", "Day"] + [col for col in zillow.columns[:-3] if col != ['Year', "Month", "Day"]]]  #Since there are so many columns, we can index for our desired start columns and add the rest
 
 # Now we can remove null values and see how much data we lose
 

@@ -31,3 +31,4 @@ plt.ylabel("Coefficients")
 plt.savefig("Coefficient_states.png")
 plt.show()
 print(model.score(xtest, ytest))
+
