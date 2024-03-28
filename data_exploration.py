@@ -42,15 +42,11 @@ plt.title("Top 10 Highest State Prices on Zillow")
 plt.savefig("Visuals/Top_10_States_ZVHI.png")
 plt.show()
 
-plt.clf()
 fig = plt.figure(figsize = (18, 12))
 sns.lineplot(data = filtered_bottom_10, x = 'Year', y = 'ZHVI', hue = 'State')
 plt.title("Bottom 10 Highest State Prices on Zillow")
 plt.savefig("Visuals/Bottom_10_States_ZVHI.png")
 plt.show()
-
-
-
 
 plt.clf()
 sns.lineplot(data = data, x = "Year", y = "ZHVI")
