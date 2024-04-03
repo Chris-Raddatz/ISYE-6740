@@ -13,4 +13,8 @@ So I found that dummying the data didn't do anything, probably because the value
 
 3) First I want to try building models out of the original data, but we can then look into performing PCA and finding some similarities across that as well. 
 - I think we should look into gathering metrics for these models: R^2, RMSE, things of that nature. 
-- We've looked at linear regression, we should try our SVM, and look into transforming the ZHVI values into log values, it could help.
+- Taking the log value of the ZVHI values reduced the test score to -65.72, but the RMSE was reduced to 0.51 lol. Also R^2 is the same as model.score(ytest, y_pred)
+
+
+### Doing Currently
+- Trying out PCA
