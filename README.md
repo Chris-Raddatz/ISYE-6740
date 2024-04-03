@@ -15,6 +15,15 @@ So I found that dummying the data didn't do anything, probably because the value
 - I think we should look into gathering metrics for these models: R^2, RMSE, things of that nature. 
 - Taking the log value of the ZVHI values reduced the test score to -65.72, but the RMSE was reduced to 0.51 lol. Also R^2 is the same as model.score(ytest, y_pred)
 
+4) Perform Clustering to identify similar house markets. 
+
+5) GMM Possibly
+
+### What I've Done:
+- Loaded Data and looked into initial data exploration: Correlation Maps, simple linear plots, can think of more as we go on
+- Performed Linear Regression, identifying what states have the highest coefficients for CPI when regressed - meaning they have higher house prices as they CPI goes up
+- Looked into SVM slightly, but didn't spend too much time on it. 
+
 
 ### Doing Currently
-- Trying out PCA
+- Trying out PCA: Try to emulate what we did on the one homework assignment, labeling the different countries. We should be able to see small clusters among them
