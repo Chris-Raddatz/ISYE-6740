@@ -23,7 +23,8 @@ So I found that dummying the data didn't do anything, probably because the value
 - Loaded Data and looked into initial data exploration: Correlation Maps, simple linear plots, can think of more as we go on
 - Performed Linear Regression, identifying what states have the highest coefficients for CPI when regressed - meaning they have higher house prices as they CPI goes up
 - Looked into SVM slightly, but didn't spend too much time on it. 
+- Now done PCA, most of the variation was within Dimension 1, Dimension 2 offers variability but because it doesn't explain much variance I pay little attention to it. 
 
 
 ### Doing Currently
-- Trying out PCA: Try to emulate what we did on the one homework assignment, labeling the different countries. We should be able to see small clusters among them
+- Look into clustering of the PCA data, can also try to do GMM between CPI and each state
