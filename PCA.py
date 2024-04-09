@@ -18,16 +18,6 @@ scaled_df=state_values.copy()
 
 scaled_df=pd.DataFrame(scaler.fit_transform(scaled_df), columns=scaled_df.columns)
 
-# print(state_values)
-# print(states)
-
-# plt.plot(x, y)
-# plt.title("What we are trying to decompose")
-# plt.xlabel("CPI")
-# plt.ylabel("State (ZHVI) Values")
-# plt.savefig("Visuals/Pre-PCA_Figure.png")
-# plt.show()
-
 #-------Performing PCA-------
 pca_data = PCA(n_components=2).fit_transform(scaled_df) #1 Component has the whole variance
 
@@ -47,5 +37,7 @@ for line in range(0,pca_df.shape[0]):
      
 plt.savefig("Visuals/PCA_reduced_state_representation.png")
 plt.show()
+
+pca_df.to_csv("data/pca_Data.csv", index = False)
 
 

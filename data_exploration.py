@@ -5,6 +5,8 @@ import numpy as np
 
 data = pd.read_csv("data/merged_df.csv")
 
+print(data.shape)
+
 CPI_states = data.iloc[:, 3:]
 
 correlations = CPI_states.corr() #Compute correlations
