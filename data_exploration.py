@@ -5,8 +5,6 @@ import numpy as np
 
 data = pd.read_csv("data/merged_df.csv")
 
-print(data.shape)
-
 CPI_states = data.iloc[:, 3:]
 
 correlations = CPI_states.corr() #Compute correlations
@@ -38,22 +36,56 @@ filtered_bottom_10 = data[data['State'].isin(bottom_10_states)]
 
 plt.style.use("ggplot")
 
-fig = plt.figure(figsize = (18, 12))
-sns.lineplot(data = filtered_top_10, x = 'Year', y = 'ZHVI', hue = 'State')
-plt.title("Top 10 Highest State Prices on Zillow")
-plt.savefig("Visuals/Top_10_States_ZVHI.png")
-plt.show()
+# fig = plt.figure(figsize = (18, 12))
+# sns.lineplot(data = filtered_top_10, x = 'Year', y = 'ZHVI', hue = 'State')
+# plt.title("Top 10 Highest State Prices on Zillow")
+# plt.savefig("Visuals/Top_10_States_ZVHI.png")
+# plt.show()
 
-fig = plt.figure(figsize = (18, 12))
-sns.lineplot(data = filtered_bottom_10, x = 'Year', y = 'ZHVI', hue = 'State')
-plt.title("Bottom 10 Highest State Prices on Zillow")
-plt.savefig("Visuals/Bottom_10_States_ZVHI.png")
-plt.show()
+# fig = plt.figure(figsize = (18, 12))
+# sns.lineplot(data = filtered_bottom_10, x = 'Year', y = 'ZHVI', hue = 'State')
+# plt.title("Bottom 10 Highest State Prices on Zillow")
+# plt.savefig("Visuals/Bottom_10_States_ZVHI.png")
+# plt.show()
 
-plt.clf()
-sns.lineplot(data = data, x = "Year", y = "ZHVI")
-plt.title("Zillow House Evaluations Across 20 Years")
-plt.savefig("Visuals/Total_House_Prices.png")
+# plt.clf()
+# fig = plt.figure(figsize = (18, 12))
+# sns.lineplot(data = data, x = "Year", y = "ZHVI")
+# plt.title("Zillow House Evaluations Across 20 Years")
+# plt.savefig("Visuals/Total_House_Prices.png")
+# plt.show()
+
+#Calculate minimum, maximum, standard deviation and % increase
+minimums = []
+maximums = []
+percent_increases = []
+stdevs = []
+
+states = data['State'].unique()
+
+for i in states:
+    filtered_df = data[data['State'] == i]
+    max = round(np.max(filtered_df['ZHVI']))
+    min = round(np.min(filtered_df['ZHVI']))
+    stdev = round(np.std(filtered_df['ZHVI']), 2)
+    start = filtered_df.loc[filtered_df.index[0], "ZHVI"]
+    finish = filtered_df.loc[filtered_df.index[-1], "ZHVI"]
+
+    percent_increase = round((finish - start) / start * 100, 2)
+
+    minimums.append(min)
+    maximums.append(max)
+    stdevs.append(stdev)
+    percent_increases.append(percent_increase)
+
+stats = pd.DataFrame({"State" : states,"Minimum" : minimums, "Maximum" : maximums, "Standard Deviation" : stdevs, "Percent Increase" : percent_increases})
+N = 49
+ind = np.arange(N)
+
+fig= plt.figure()
+ax = fig.add_subplot(111)
+ax.bar(ind, height = stats['Minimum'], width = 0.3, color = "b", label = "Minimum ZHVI")
+ax.bar(ind - 0.3, height = stats['Maximum'], width = 0.3, color = "r", label = "Maximum ZHVI")
 plt.show()
 
 

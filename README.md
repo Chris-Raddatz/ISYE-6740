@@ -19,6 +19,8 @@ So I found that dummying the data didn't do anything, probably because the value
 
 5) GMM Possibly
 
+6) Look into the difference in values between 2001 and 2007, see how they compare from 2020 onward. Could be interesting to see if there's a difference. 
+
 ### What I've Done:
 - Loaded Data and looked into initial data exploration: Correlation Maps, simple linear plots, can think of more as we go on
 - Performed Linear Regression, identifying what states have the highest coefficients for CPI when regressed - meaning they have higher house prices as they CPI goes up
