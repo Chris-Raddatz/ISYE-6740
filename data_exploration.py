@@ -5,6 +5,8 @@ import numpy as np
 
 data = pd.read_csv("data/merged_df.csv")
 
+plt.style.use("ggplot")
+
 CPI_states = data.iloc[:, 3:]
 
 correlations = CPI_states.corr() #Compute correlations
@@ -79,13 +81,18 @@ for i in states:
     percent_increases.append(percent_increase)
 
 stats = pd.DataFrame({"State" : states,"Minimum" : minimums, "Maximum" : maximums, "Standard Deviation" : stdevs, "Percent Increase" : percent_increases})
-N = 49
-ind = np.arange(N)
 
-fig= plt.figure()
-ax = fig.add_subplot(111)
-ax.bar(ind, height = stats['Minimum'], width = 0.3, color = "b", label = "Minimum ZHVI")
-ax.bar(ind - 0.3, height = stats['Maximum'], width = 0.3, color = "r", label = "Maximum ZHVI")
+order_stats = stats[['State', 'Percent Increase']].sort_values(by = "Percent Increase", ascending = False).reset_index(drop = True)
+
+print(order_stats)
+
+plt.figure(figsize = (14,8))
+sns.barplot(order_stats, y = "Percent Increase", x = "State")
+plt.xticks(rotation = 90)
+plt.title("Percent Increase in ZHVI (2002 - 2021)")
+plt.xlabel("States")
+plt.ylabel("Percent Increase")
+plt.savefig("Visuals/Percent_Increase.png")
 plt.show()
 
 

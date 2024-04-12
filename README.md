@@ -26,6 +26,7 @@ So I found that dummying the data didn't do anything, probably because the value
 - Performed Linear Regression, identifying what states have the highest coefficients for CPI when regressed - meaning they have higher house prices as they CPI goes up
 - Looked into SVM slightly, but didn't spend too much time on it. 
 - Now done PCA, most of the variation was within Dimension 1, Dimension 2 offers variability but because it doesn't explain much variance I pay little attention to it. 
+- Plotted percent increase in ZHVI values across the timeline, to get another visual on which states are at the high and bottom of this spectrum. 
 
 
 ### Doing Currently
