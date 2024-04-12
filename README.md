@@ -28,6 +28,5 @@ So I found that dummying the data didn't do anything, probably because the value
 - Now done PCA, most of the variation was within Dimension 1, Dimension 2 offers variability but because it doesn't explain much variance I pay little attention to it. 
 - Plotted percent increase in ZHVI values across the timeline, to get another visual on which states are at the high and bottom of this spectrum. 
 
-
 ### Doing Currently
-- Look into clustering of the PCA data, can also try to do GMM between CPI and each state
+- Look into clustering of the PCA data, can also tryasdfasdfas to do GMM between CPI and each state
