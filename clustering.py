@@ -21,7 +21,15 @@ cluster_3.fit(just_data)
 
 pca_data['cluster'] = cluster_3.labels_
 
-p1 = sns.scatterplot(x = "Dimension1", y = "Dimension2", data = pca_data, s = 65, hue = "cluster")
-plt.title("KMeans Clustered Plot of PCA Data")
-plt.savefig("Visuals/pca_clustered_plots.png")
-plt.show()
+# p1 = sns.scatterplot(x = "Dimension1", y = "Dimension2", data = pca_data, s = 65, hue = "cluster")
+# plt.title("KMeans Clustered Plot of PCA Data")
+# plt.savefig("Visuals/pca_clustered_plots.png")
+# plt.show()
+
+zero_cluster = pca_data[pca_data['cluster'] == 0] #Biggest cluster, seems to be homes that aren't affected as much
+first_cluster = pca_data[pca_data['cluster'] == 1] # Most expensive states
+second_cluster = pca_data[pca_data['cluster'] == 2] # Middle of the road states
+
+print(zero_cluster['States'])
+print(first_cluster['States'])
+print(second_cluster['States'])

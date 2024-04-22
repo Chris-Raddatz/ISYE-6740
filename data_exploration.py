@@ -44,11 +44,11 @@ plt.style.use("ggplot")
 # plt.savefig("Visuals/Top_10_States_ZVHI.png")
 # plt.show()
 
-# fig = plt.figure(figsize = (18, 12))
-# sns.lineplot(data = filtered_bottom_10, x = 'Year', y = 'ZHVI', hue = 'State')
-# plt.title("Bottom 10 Highest State Prices on Zillow")
-# plt.savefig("Visuals/Bottom_10_States_ZVHI.png")
-# plt.show()
+fig = plt.figure(figsize = (18, 12))
+sns.lineplot(data = filtered_bottom_10, x = 'Year', y = 'ZHVI', hue = 'State')
+plt.title("Lowest 10 State Prices on Zillow")
+plt.savefig("Visuals/Bottom_10_States_ZVHI.png")
+plt.show()
 
 # plt.clf()
 # fig = plt.figure(figsize = (18, 12))
@@ -84,7 +84,12 @@ stats = pd.DataFrame({"State" : states,"Minimum" : minimums, "Maximum" : maximum
 
 order_stats = stats[['State', 'Percent Increase']].sort_values(by = "Percent Increase", ascending = False).reset_index(drop = True)
 
-print(order_stats)
+head_order = order_stats.head(5)
+tail_order = order_stats.tail(5)
+
+merged_orders = pd.concat([head_order, tail_order], axis = 0)
+
+print(merged_orders)
 
 plt.figure(figsize = (14,8))
 sns.barplot(order_stats, y = "Percent Increase", x = "State")
