@@ -1,10 +1,11 @@
 from sklearn.linear_model import LinearRegression
-from sklearn.model_selection import GridSearchCV, train_test_split
+from sklearn.model_selection import train_test_split
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 import seaborn as sns
 from sklearn.metrics import mean_squared_error, r2_score
+from scipy.stats import linregress
 
 plt.style.use("ggplot")
 
@@ -18,7 +19,7 @@ x = file[['CPI']]
 y = file[states]
 
 xtrain, xtest, ytrain, ytest = train_test_split(x, y, test_size = 0.20, train_size = .80, random_state = 21)
-model = LinearRegression(fit_intercept=False, n_jobs=None, positive=False)
+model = LinearRegression(fit_intercept = False, n_jobs=None, positive=False)
 model.fit(xtrain, ytrain)
 y_pred = model.predict(xtest)
 

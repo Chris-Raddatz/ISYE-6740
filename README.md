@@ -30,4 +30,4 @@ So I found that dummying the data didn't do anything, probably because the value
 - Included a CPI plot over time to see how those values have increased within our time frame.
 
 ### Doing Currently
-- Updating the report with what I have so far. 
+- Updating the report with what I have so far. Also generated an elbow plot for the PCA decomposition.
