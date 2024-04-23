@@ -30,4 +30,5 @@ So I found that dummying the data didn't do anything, probably because the value
 - Included a CPI plot over time to see how those values have increased within our time frame.
 
 ### Doing Currently
-- Updating the report with what I have so far. Also generated an elbow plot for the PCA decomposition.
+- Trying to generate a plot of the United States filled in via cluster color
+Use this link https://medium.com/@alex_44314/use-python-geopandas-to-make-a-us-map-with-alaska-and-hawaii-39a9f5c222c6
