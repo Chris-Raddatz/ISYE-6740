@@ -30,7 +30,9 @@ So I found that dummying the data didn't do anything, probably because the value
 - Included a CPI plot over time to see how those values have increased within our time frame.
 - Filled Tableau plot with clusters or Dimension1.
 - Generated KDE plots for each state vs CPI.
+- Did Linear Regression in R to find r_squared
 
 ### Doing Currently
-- Can do simple linear regression or find correlation R^2 between each state and CPI.
+- Investigating Connecticut because it seems to be an anomaly.
+- Importing new figures into document
 - Create an appendix for additional figures
