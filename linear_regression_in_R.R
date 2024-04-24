@@ -11,3 +11,4 @@ for(i in 5:ncol(df)) {       # for-loop over columns
 }
 
 new_df = data.frame("State" = state, "R Squared" = r_squared)
+write.csv(new_df, "r_squared_values.csv")
