@@ -30,5 +30,7 @@ So I found that dummying the data didn't do anything, probably because the value
 - Included a CPI plot over time to see how those values have increased within our time frame.
 
 ### Doing Currently
-- Trying to generate a plot of the United States filled in via cluster color
-Use this link https://medium.com/@alex_44314/use-python-geopandas-to-make-a-us-map-with-alaska-and-hawaii-39a9f5c222c6
+- Trying to generate a plot of the United States filled in via cluster color with Tableau
+- GMM for concentration
+- Can do simple linear regression or find correlation R^2 between each state and CPI.
+- Create an appendix for additional figures
