@@ -25,6 +25,8 @@ cluster_3.fit(just_data)
 
 pca_data['cluster'] = cluster_3.labels_
 
+pca_data.to_csv("data/clusters_data.csv", index = False)
+
 p1 = sns.scatterplot(x = "Dimension1", y = "Dimension2", data = pca_data, s = 65, hue = "cluster")
 plt.title("KMeans Clustered Plot of PCA Data")
 plt.legend(loc = "upper left")
