@@ -10,6 +10,7 @@ plt.style.use("ggplot")
 CPI_states = data.iloc[:, 3:]
 
 correlations = CPI_states.corr() #Compute correlations
+print(correlations['CPI'])
 
 #The top 10 states are Alaska, Wyoming, South Dakota, Louisiana, Vermont, the District of Columbia, Oklahoma, Iowa, Hawaii
 
