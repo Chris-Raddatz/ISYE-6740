@@ -21,4 +21,4 @@ write.csv(new_df, "r_squared_values.csv")
 new_df <- new_df[order(-new_df$Coefficient), ]
 
 ggplot(new_df) + geom_bar(aes(x = reorder(State, Coefficient), y = Coefficient), stat = "identity") + coord_flip() + labs(title = "Coefficients For State From Linear Regression",
-                                                                                                                          x = "Coefficient", y = "State")
+                                                                                                                          x = "State", y = "Coefficient")
