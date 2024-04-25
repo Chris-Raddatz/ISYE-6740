@@ -1,10 +1,6 @@
 import pandas as pd
-import seaborn as sns 
 import matplotlib.pyplot as plt 
-import math
 import numpy as np
-from sklearn.neighbors import KernelDensity
-import statistics as st
 from matplotlib.pyplot import plot
 import scipy.stats as stats
 
@@ -36,13 +32,8 @@ def plot_kernel(data, state):
     ax = fig.gca()
     ax.set_xlim(xmin, xmax)
     ax.set_ylim(ymin, ymax)
-    # Contourf plot
     cfset = ax.contourf(xx, yy, f, cmap='coolwarm')
-    ## Or kernel density estimate plot instead of the contourf plot
-    #ax.imshow(np.rot90(f), cmap='Blues', extent=[xmin, xmax, ymin, ymax])
-    # Contour plot
     cset = ax.contour(xx, yy, f, colors='k')
-    # Label plot
     ax.clabel(cset, inline=1, fontsize=10)
     ax.set_xlabel('CPI')
     ax.set_ylabel('State ZHVI Values')

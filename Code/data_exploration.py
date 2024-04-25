@@ -50,7 +50,6 @@ plt.title("Lowest 10 State Prices on Zillow")
 plt.savefig("Visuals/Bottom_10_States_ZVHI.png")
 plt.show()
 
-plt.clf()
 fig = plt.figure(figsize = (18, 12))
 sns.lineplot(data = data, x = "Year", y = "ZHVI")
 plt.title("Zillow House Evaluations Across 20 Years")
