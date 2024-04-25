@@ -10,7 +10,6 @@ plt.style.use("ggplot")
 CPI_states = data.iloc[:, 3:]
 
 correlations = CPI_states.corr() #Compute correlations
-print(correlations['CPI'])
 
 #The top 10 states are Alaska, Wyoming, South Dakota, Louisiana, Vermont, the District of Columbia, Oklahoma, Iowa, Hawaii
 
@@ -51,12 +50,12 @@ plt.title("Lowest 10 State Prices on Zillow")
 plt.savefig("Visuals/Bottom_10_States_ZVHI.png")
 plt.show()
 
-# plt.clf()
-# fig = plt.figure(figsize = (18, 12))
-# sns.lineplot(data = data, x = "Year", y = "ZHVI")
-# plt.title("Zillow House Evaluations Across 20 Years")
-# plt.savefig("Visuals/Total_House_Prices.png")
-# plt.show()
+plt.clf()
+fig = plt.figure(figsize = (18, 12))
+sns.lineplot(data = data, x = "Year", y = "ZHVI")
+plt.title("Zillow House Evaluations Across 20 Years")
+plt.savefig("Visuals/Total_House_Prices.png")
+plt.show()
 
 #Calculate minimum, maximum, standard deviation and % increase
 minimums = []
